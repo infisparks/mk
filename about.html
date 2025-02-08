@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - MK Jerseys</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fullscreen Day/Night Mode */
+        body.light-mode {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Page Fade In Animation */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Sticky Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Hover effects on cards */
+        .team-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hover effects on links */
+        .hover\:scale-110:hover {
+            transform: scale(1.1);
+        }
+
+        /* ScrollSpy active link */
+        .active {
+            color: #1D4ED8;
+            font-weight: bold;
+        }
+
+        /* Background for hero section */
+        .hero-background {
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+        }
+        
+        /* Testimonials */
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Smooth transition for theme change */
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 text-white dark-mode">
+
+    <!-- Main Navbar -->
+    <nav class="navbar bg-gray-800 text-white px-10 py-6 flex justify-between items-center shadow-md transition-all">
+        <div class="text-4xl font-serif text-blue-400">
+            MK 
+        </div>
+        <div class="hidden md:flex space-x-10 text-gray-200">
+            <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
+            <a href="shop.html" class="hover:text-blue-400 transition-colors">Shop</a>
+            <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+            <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
+        </div>
+        <button class="text-blue-400 hover:text-white transition-all" id="theme-toggle">
+            <i class="fas fa-moon text-2xl"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-background relative bg-cover bg-center" style="background-image: url('https://example.com/about-banner.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-center text-white px-6 fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">About MK Jerseys</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Leading the world of sports fashion with our premium jerseys and exclusive designs.</p>
+        </div>
+    </section>
+
+    <!-- About Us Content -->
+    <section id="about" class="py-16 px-6 md:px-20 bg-gray-800">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-blue-400 fade-in">Our Story</h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-12 text-center max-w-3xl mx-auto fade-in">
+            MK Jerseys was founded in 2020 with a mission to bring premium-quality, stylish sports jerseys to fans worldwide. Our vision is to combine style with comfort and functionality, providing jerseys that cater to athletes and sports enthusiasts.
+        </p>
+
+        <!-- Our Mission -->
+        <h3 class="text-2xl md:text-3xl font-semibold text-center text-blue-400 mb-6">Our Mission</h3>
+        <p class="text-lg md:text-xl text-gray-300 text-center max-w-3xl mx-auto mb-12">
+            We strive to create jerseys that inspire confidence and pride in every wearer. Our commitment to quality craftsmanship, sustainable materials, and unique designs ensures that each product we create is not only visually appealing but built to last.
+        </p>
+
+        <!-- Our Values -->
+        <h3 class="text-2xl md:text-3xl font-semibold text-center text-blue-400 mb-6">Our Values</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="text-center">
+                <i class="fas fa-tshirt text-5xl text-blue-400 mb-4"></i>
+                <h4 class="text-xl font-semibold text-blue-400 mb-2">Quality First</h4>
+                <p class="text-lg text-gray-300">We focus on using the highest quality materials to ensure durability and comfort.</p>
+            </div>
+            <div class="text-center">
+                <i class="fas fa-handshake text-5xl text-blue-400 mb-4"></i>
+                <h4 class="text-xl font-semibold text-blue-400 mb-2">Customer Satisfaction</h4>
+                <p class="text-lg text-gray-300">Your satisfaction is our top priority. We provide exceptional service and a great shopping experience.</p>
+            </div>
+            <div class="text-center">
+                <i class="fas fa-leaf text-5xl text-blue-400 mb-4"></i>
+                <h4 class="text-xl font-semibold text-blue-400 mb-2">Sustainability</h4>
+                <p class="text-lg text-gray-300">We are committed to reducing our environmental impact by using eco-friendly materials and ethical production practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team Section -->
+    <section class="py-16 px-6 md:px-20 bg-gray-900">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-blue-400">Meet the Team</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Team Member 1 -->
+            <div class="team-card bg-gray-800 rounded-xl shadow-lg overflow-hidden text-center p-6">
+                <img src="https://via.placeholder.com/150" alt="Team Member 1" class="w-32 h-32 rounded-full mx-auto mb-6">
+                <h3 class="text-xl font-semibold text-blue-400 mb-2">John Doe</h3>
+                <p class="text-lg text-gray-300">CEO & Founder</p>
+                <p class="text-gray-400 mt-4">John founded MK Jerseys with a passion for sports fashion and a vision to create something special for sports fans worldwide.</p>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="team-card bg-gray-800 rounded-xl shadow-lg overflow-hidden text-center p-6">
+                <img src="https://via.placeholder.com/150" alt="Team Member 2" class="w-32 h-32 rounded-full mx-auto mb-6">
+                <h3 class="text-xl font-semibold text-blue-400 mb-2">Jane Smith</h3>
+                <p class="text-lg text-gray-300">Marketing Director</p>
+                <p class="text-gray-400 mt-4">Jane leads the marketing team with innovative strategies that help bring MK Jerseys to fans around the globe.</p>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="team-card bg-gray-800 rounded-xl shadow-lg overflow-hidden text-center p-6">
+                <img src="https://via.placeholder.com/150" alt="Team Member 3" class="w-32 h-32 rounded-full mx-auto mb-6">
+                <h3 class="text-xl font-semibold text-blue-400 mb-2">David Johnson</h3>
+                <p class="text-lg text-gray-300">Product Designer</p>
+                <p class="text-gray-400 mt-4">David is the mastermind behind our unique and stylish designs, ensuring every jersey is a work of art.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navbar (Mobile View) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-gray-800 text-white py-4 flex justify-around items-center shadow-xl">
+        <a href="index.html" class="flex flex-col items-center text-blue-400 hover:scale-110 transition-transform">
+            <i class="fas fa-home text-2xl"></i>
+            <span class="text-sm">Home</span>
+        </a>
+        <a href="shop.html" class="flex flex-col items-center text-blue-400 hover:scale-110 transition-transform">
+            <i class="fas fa-store text-2xl"></i>
+            <span class="text-sm">Shop</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-blue-400 hover:scale-110 transition-transform">
+            <i class="fas fa-info-circle text-2xl"></i>
+            <span class="text-sm">About</span>
+        </a>
+        <a href="contact.html" class="flex flex-col items-center text-blue-400 hover:scale-110 transition-transform">
+            <i class="fas fa-phone-alt text-2xl"></i>
+            <span class="text-sm">Contact</span>
+        </a>
+    </div>
+
+    <script>
+        // Toggle Dark/Light Mode
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            document.body.classList.toggle("light-mode");
+            themeToggleBtn.innerHTML = document.body.classList.contains("dark-mode")
+                ? '<i class="fas fa-sun text-2xl"></i>'
+                : '<i class="fas fa-moon text-2xl"></i>';
+        });
+    </script>
+
+</body>
+</html>

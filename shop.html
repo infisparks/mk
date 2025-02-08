@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Jerseys - Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fullscreen Day/Night Mode */
+        body.light-mode {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Hover effects on cards */
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ScrollSpy active link */
+        .active {
+            color: #1D4ED8;
+            font-weight: bold;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Bottom Navbar (Mobile View) */
+        .bottom-navbar {
+            background-color: #ffffff;
+            color: #333;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 999;
+            border-top: 1px solid #ddd;
+        }
+
+        .bottom-navbar a {
+            color: #333;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .bottom-navbar a:hover {
+            transform: scale(1.1);
+        }
+
+        .bottom-navbar .icon {
+            font-size: 1.5rem;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 dark-mode">
+
+    <!-- Main Navbar -->
+    <nav class="bg-gray-800 text-white px-10 py-6 flex justify-between items-center shadow-md sticky top-0 z-50">
+        <div class="text-4xl font-serif text-blue-400">
+            MK 
+        </div>
+        <div class="hidden md:flex space-x-10 text-gray-200">
+            <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
+            <a href="shop.html" class="hover:text-blue-400 transition-colors">Shop</a>
+            <a href="about.html" class="hover:text-blue-400 transition-colors">About</a>
+            <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
+        </div>
+        <button class="text-blue-400 hover:text-white transition-all" id="theme-toggle">
+            <i class="fas fa-moon text-2xl"></i>
+        </button>
+    </nav>
+
+    <!-- Shop Page Content -->
+    <div class="flex flex-col md:flex-row py-10 px-6 md:px-20">
+
+        <!-- Filter Sidebar -->
+        <div class="md:w-1/4 w-full mb-10 md:mb-0">
+            <h2 class="text-xl font-semibold text-blue-400 mb-4">Filters</h2>
+            <div>
+                <h3 class="text-lg font-semibold">Category</h3>
+                <ul>
+                    <li><input type="checkbox" id="football" /> <label for="football">Football Jerseys</label></li>
+                    <li><input type="checkbox" id="basketball" /> <label for="basketball">Basketball Jerseys</label></li>
+                    <li><input type="checkbox" id="custom" /> <label for="custom">Custom Jerseys</label></li>
+                </ul>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold">Price Range</h3>
+                <input type="range" min="0" max="500" value="250" class="w-full" id="price-range">
+                <div class="flex justify-between">
+                    <span>$0</span><span>$500</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="flex flex-wrap gap-10 md:w-3/4 w-full">
+
+            <!-- Product Card 1 -->
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl" data-id="1">
+                <img src="https://via.placeholder.com/400x400" alt="Jersey 1" class="w-full h-72 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-400">Classic Football Jersey</h3>
+                    <p class="text-gray-500 mt-2">An iconic design, perfect for any fan.</p>
+                    <p class="text-blue-400 mt-4 text-lg font-semibold">$59.99</p>
+                    <button class="btn-primary w-full mt-6" onclick="openModal(1)">View Details</button>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl" data-id="2">
+                <img src="https://via.placeholder.com/400x400" alt="Jersey 2" class="w-full h-72 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-400">Retro Basketball Jersey</h3>
+                    <p class="text-gray-500 mt-2">Feel the nostalgia with this vintage style.</p>
+                    <p class="text-blue-400 mt-4 text-lg font-semibold">$79.99</p>
+                    <button class="btn-primary w-full mt-6" onclick="openModal(2)">View Details</button>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl" data-id="3">
+                <img src="https://via.placeholder.com/400x400" alt="Jersey 3" class="w-full h-72 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-400">Custom Team Jersey</h3>
+                    <p class="text-gray-500 mt-2">Create your own unique team jersey.</p>
+                    <p class="text-blue-400 mt-4 text-lg font-semibold">$89.99</p>
+                    <button class="btn-primary w-full mt-6" onclick="openModal(3)">View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Product Details -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content bg-white p-8 rounded-xl max-w-4xl w-full">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h3 class="text-2xl font-semibold text-blue-400 mb-4">Product Name</h3>
+            <p class="text-gray-600 mb-6">Here are the details about the product. You can add more product details such as size, material, etc.</p>
+            <button class="btn-primary">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Bottom Navbar (Mobile View) -->
+    <div class="bottom-navbar md:hidden">
+        <a href="index.html" class="flex flex-col items-center">
+            <i class="fas fa-home icon"></i>
+            <span class="text-sm">Home</span>
+        </a>
+        <a href="shop.html" class="flex flex-col items-center">
+            <i class="fas fa-store icon"></i>
+            <span class="text-sm">Shop</span>
+        </a>
+        <a href="about.html" class="flex flex-col items-center">
+            <i class="fas fa-info-circle icon"></i>
+            <span class="text-sm">About</span>
+        </a>
+        <a href="contact.html" class="flex flex-col items-center">
+            <i class="fas fa-phone-alt icon"></i>
+            <span class="text-sm">Contact</span>
+        </a>
+    </div>
+
+    <script>
+        // Modal Toggle
+        const modal = document.getElementById("product-modal");
+
+        function openModal(productId) {
+            modal.style.display = "flex";
+            // Here you can set the content dynamically based on the productId
+            document.querySelector("#product-modal h3").innerText = `Product ${productId}`;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Toggle Day/Night Mode
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            document.body.classList.toggle("light-mode");
+            themeToggleBtn.innerHTML = document.body.classList.contains("dark-mode")
+                ? '<i class="fas fa-sun text-2xl"></i>'
+                : '<i class="fas fa-moon text-2xl"></i>';
+        });
+    </script>
+
+</body>
+</html>

@@ -3,48 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MK Navbar</title>
+    <title>MK Jerseys</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Updated FontAwesome CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Lobster&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-900">
 
     <!-- Main Navbar (Desktop View) -->
-    <nav class="bg-black text-white px-8 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold text-blue-500">
-            MK
+    <nav class="bg-gray-800 text-white px-10 py-6 flex justify-between items-center shadow-md">
+        <div class="text-4xl font-serif text-blue-400">
+            MK 
         </div>
-        <div class="hidden md:flex space-x-8">
-            <a href="#" class="hover:text-blue-500 transition-colors">Home</a>
-            <a href="#" class="hover:text-blue-500 transition-colors">About</a>
-            <a href="#" class="hover:text-blue-500 transition-colors">Services</a>
-            <a href="#" class="hover:text-blue-500 transition-colors">Contact</a>
+        <div class="hidden md:flex space-x-10 text-gray-200">
+            <a href="#" class="hover:text-blue-400 transition-colors">Home</a>
+            <a href="shop.html" class="hover:text-blue-400 transition-colors">Shop</a>
+            <a href="about.html" class="hover:text-blue-400 transition-colors">About</a>
+            <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center h-screen relative" style="background-image: url('https://example.com/jersey-banner.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-center text-white px-6">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Gear Up with MK Jerseys!</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Find your perfect fit from our exclusive collection of premium jerseys.</p>
+            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg shadow-xl transition-all transform hover:scale-105">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Jerseys -->
+    <section class="py-16 px-6 md:px-20 bg-gray-900">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-400">Featured Jerseys</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl">
+                <img src="images.jpg" alt="Jersey 1" class="w-full h-72 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-400">Classic Football Jersey</h3>
+                    <p class="text-gray-300 mt-2">An iconic design, perfect for any fan.</p>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all">Buy Now</a>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl">
+                <img src="6.jpg" alt="Jersey 2" class="w-full h-72 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-400">Retro Basketball Jersey</h3>
+                    <p class="text-gray-300 mt-2">Feel the nostalgia with this vintage style.</p>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all">Buy Now</a>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl">
+                <img src="4.jpg" alt="Jersey 3" class="w-full h-72 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-blue-400">Custom Team Jersey</h3>
+                    <p class="text-gray-300 mt-2">Create your own unique team jersey.</p>
+                    <a href="#" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Bottom Navbar (Mobile View) -->
-    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-black text-white py-3 flex justify-between items-center">
-        <a href="#" class="flex flex-col items-center text-blue-500 space-y-1">
-            <i class="fas fa-home text-2xl"></i> <!-- Home Icon -->
-            <span class="text-xs">Home</span>
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-gray-800 text-white py-4 flex justify-around items-center shadow-xl">
+        <a href="#" class="flex flex-col items-center text-blue-400 hover:scale-110 transition-transform">
+            <i class="fas fa-home text-2xl"></i>
+            <span class="text-sm">Home</span>
         </a>
-        <a href="#" class="flex flex-col items-center text-blue-500 space-y-1">
-            <i class="fas fa-info-circle text-2xl"></i> <!-- About Icon -->
-            <span class="text-xs">About</span>
+        <a href="shop.html" class="flex flex-col items-center text-blue-400 hover:scale-110 transition-transform">
+            <i class="fas fa-store text-2xl"></i>
+            <span class="text-sm">Shop</span>
         </a>
-        <a href="#" class="flex flex-col items-center text-blue-500 space-y-1">
-            <i class="fas fa-cogs text-2xl"></i> <!-- Services Icon -->
-            <span class="text-xs">Services</span>
+        <a href="about.html" class="flex flex-col items-center text-blue-400 hover:scale-110 transition-transform">
+            <i class="fas fa-info-circle text-2xl"></i>
+            <span class="text-sm">About</span>
         </a>
-        <a href="#" class="flex flex-col items-center text-blue-500 space-y-1">
-            <i class="fas fa-phone-alt text-2xl"></i> <!-- Contact Icon -->
-            <span class="text-xs">Contact</span>
+        <a href="contact.html" class="flex flex-col items-center text-blue-400 hover:scale-110 transition-transform">
+            <i class="fas fa-phone-alt text-2xl"></i>
+            <span class="text-sm">Contact</span>
         </a>
     </div>
 
     <script>
-        // JavaScript for future functionality (like menu toggle)
+        // Placeholder for future JavaScript functionality
     </script>
 </body>
 </html>
