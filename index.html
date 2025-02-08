@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Updated FontAwesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <!-- Main Navbar (Desktop View) -->
+    <nav class="bg-black text-white px-8 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-blue-500">
+            MK
+        </div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#" class="hover:text-blue-500 transition-colors">Home</a>
+            <a href="#" class="hover:text-blue-500 transition-colors">About</a>
+            <a href="#" class="hover:text-blue-500 transition-colors">Services</a>
+            <a href="#" class="hover:text-blue-500 transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Bottom Navbar (Mobile View) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-black text-white py-3 flex justify-between items-center">
+        <a href="#" class="flex flex-col items-center text-blue-500 space-y-1">
+            <i class="fas fa-home text-2xl"></i> <!-- Home Icon -->
+            <span class="text-xs">Home</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-blue-500 space-y-1">
+            <i class="fas fa-info-circle text-2xl"></i> <!-- About Icon -->
+            <span class="text-xs">About</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-blue-500 space-y-1">
+            <i class="fas fa-cogs text-2xl"></i> <!-- Services Icon -->
+            <span class="text-xs">Services</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-blue-500 space-y-1">
+            <i class="fas fa-phone-alt text-2xl"></i> <!-- Contact Icon -->
+            <span class="text-xs">Contact</span>
+        </a>
+    </div>
+
+    <script>
+        // JavaScript for future functionality (like menu toggle)
+    </script>
+</body>
+</html>
